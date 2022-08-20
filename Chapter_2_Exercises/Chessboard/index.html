@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard</title>
+</head>
+<body>
+    <script>
+        // one string will be used to contain the entire board
+        let str = "";
+
+        /* Boolean will keep track of whether a space should be added to str
+           (as opposed to a pound sign) Board will start with a space
+           Boolean will be updated after every addition to a str
+           to create a patter of spaces and pounds */
+        let space = true;
+
+        const size = 8;
+
+        for (let i = 0; i < size; i++)  {
+            for (let k = 0; k < size; k++)  {
+                if (space)  {
+                    str += " ";
+                    space = false
+                }
+                else  {
+                    str += "#";
+                    space = true;
+                }    
+            }
+            str += "\n"
+
+            // for each new row, the boolean will need to be flipped so spaces and pounds are staggered
+            space ? space = false : space = true;
+        }
+        console.log(str);
+    </script>
+    
+</body>
+</html>
