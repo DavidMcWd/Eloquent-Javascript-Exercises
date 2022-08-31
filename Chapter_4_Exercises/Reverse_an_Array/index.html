@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse an Array</title>
+</head>
+<body>
+    <script>
+        function reverseArray(array)    {
+            let newArray = [];
+            for (value of array) newArray.unshift(value);
+            console.log("Old array (unchanged):", array);
+            return newArray;
+        }
+
+        console.log("Reverse:", reverseArray([1, 2, 3, 4]));
+
+        function reverseArrayInPlace(array) {
+            // the value will always be taken from the front
+            // but the splice position will need to move towards the front
+            // by one each time. 
+            let value;
+            let splicePosition = array.length - 1;
+            for (let i = splicePosition; i > 0; i--)    {
+                value = array.splice(0, 1);
+                array.splice(i, 0, value[0]);
+            }
+            return array;
+        }
+
+        console.log("Reverse in place:", reverseArrayInPlace(["a", "b", "C", "d", "e", "f", "g", 8]));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sum of a Range</title>
+</head>
+<body>
+    <script>
+        /* create a array containing every whole number from start to end.
+        works backwards and forwards. start and end must be different than
+        eachother */
+        function range(start, end, step = start <= end ? 1 : -1)   {
+            let arr = [];
+            if (start < end)    {
+                for (let i = start; i <= end; i += step)   {
+                    arr.push(i);
+                }
+            }
+            else    {
+                for (let i = start; i >= end; i+= step)   {
+                    arr.push(i);
+                }
+            }
+
+            return arr;
+        }
+
+        function sum(array) {
+            let total = 0;
+            for (let value of array)    {
+                total += value;
+            }
+            return total;
+        }
+
+        console.log(sum(range(1, 10)));
+    </script>
+</body>
+</html>
